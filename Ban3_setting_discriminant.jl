@@ -84,34 +84,27 @@ function BellA_discriminant(pA)
     x = 1 / 52.9
     y = 1 / 49.6
     z = 1 / 45.8
-    A1 = 0
-    A2 = 0
-    A3 = 0
-    A4 = 0
-    A5 = 0
-    A6 = 0
+    aDict = Dict{String,Int64}("1" => 0,"2" => 0,"3" => 0,"4" => 0,"5" => 0,"6" => 0)
 
     if pA <= x
-        A1 += 3
-        A2 += 3
-        A3 += 3
-        A5 += 3
+        aDict["1"] += 3
+        aDict["2"] += 3
+        aDict["3"] += 3
+        aDict["5"] += 3
     elseif pA > x && pA < y
-        A1 += 2
-        A2 += 2
-        A3 += 2
-        A4 += 2
-        A5 += 2
+        aDict["1"] += 2
+        aDict["2"] += 2
+        aDict["3"] += 2
+        aDict["4"] += 2
+        aDict["5"] += 2
     elseif pA == y
-        A4 += 4
+        aDict["4"] += 4
     elseif pA > y && pA < z
-        A4 += 3
-        A6 += 3
+        aDict["4"] += 3
+        aDict["6"] += 3
     elseif pA >= z
-        A6 += 4
+        aDict["6"] += 4
     end
-
-    aDict = Dict{String,Int64}("1" => A1,"2" => A2,"3" => A3,"4" => A4,"5" => A5,"6" => A6)
 
     return aDict
 end
@@ -120,34 +113,27 @@ function BellB_discriminant(pB)
     x = 1 / 103.4
     y = 1 / 97.8
     z = 1 / 91.5
-    B1 = 0
-    B2 = 0
-    B3 = 0
-    B4 = 0
-    B5 = 0
-    B6 = 0
+    bDict = Dict{String,Int64}("1" => 0,"2" => 0,"3" => 0,"4" => 0,"5" => 0,"6" => 0)
 
     if pB <= x
-        B1 += 3
-        B2 += 3
-        B3 += 3
-        B5 += 3
+        bDict["1"] += 3
+        bDict["2"] += 3
+        bDict["3"] += 3
+        bDict["5"] += 3
     elseif pB > x && pB < y
-        B1 += 2
-        B2 += 2
-        B3 += 2
-        B4 += 2
-        B5 += 2
+        bDict["1"] += 2
+        bDict["2"] += 2
+        bDict["3"] += 2
+        bDict["4"] += 2
+        bDict["5"] += 2
     elseif pB == y
-        B4 += 4
+        bDict["4"] += 4
     elseif pB > y && pB < z
-        B4 += 3
-        B6 += 3
+        bDict["4"] += 3
+        bDict["6"] += 3
     elseif pB >= z
-        B6 += 4
+        bDict["6"] += 4
     end
-
-    bDict = Dict{String,Int64}("1" => B1,"2" => B2,"3" => B3,"4" => B4,"5" => B5,"6" => B6)
 
     return bDict
 end
@@ -156,70 +142,56 @@ function BellC_discriminant(pC)
     x = 1 / 152.4
     y = 1 / 139.4
     z = 1 / 123.7
-    C1 = 0
-    C2 = 0
-    C3 = 0
-    C4 = 0
-    C5 = 0
-    C6 = 0
+    cDict = Dict{String,Int64}("1" => 0,"2" => 0,"3" => 0,"4" => 0,"5" => 0,"6" => 0)
 
     if pC <= x
-        C1 += 3
-        C2 += 3
-        C3 += 3
-        C5 += 3
+        cDict["1"] += 3
+        cDict["2"] += 3
+        cDict["3"] += 3
+        cDict["5"] += 3
     elseif pC > x && pC < y
-        C1 += 2
-        C2 += 2
-        C3 += 2
-        C4 += 2
-        C5 += 2
+        cDict["1"] += 2
+        cDict["2"] += 2
+        cDict["3"] += 2
+        cDict["4"] += 2
+        cDict["5"] += 2
     elseif pC == y
-        C4 += 4
+        cDict["4"] += 4
     elseif pC > y && pC < z
-        C4 += 3
-        C6 += 3
+        cDict["4"] += 3
+        cDict["6"] += 3
     elseif pC >= z
-        C6 += 4
+        cDict["6"] += 4
     end
-
-    cDict = Dict{String,Int64}("1" => C1,"2" => C2,"3" => C3,"4" => C4,"5" => C5,"6" => C6)
 
     return cDict
 end
 
 function ChBattle_discriminant(pBattle)
-    CB1 = 0
-    CB2 = 0
-    CB3 = 0
-    CB4 = 0
-    CB5 = 0
-    CB6 = 0
+    ChBattleDict = Dict{String,Int64}("1" => 0,"2" => 0,"3" => 0,"4" => 0,"5" => 0,"6" => 0)
 
     if pBattle <= 0.1563
-        CB1 += 4
-        CB2 += 4
+        ChBattleDict["1"] += 4
+        ChBattleDict["2"] += 4
     elseif pBattle > 0.1563 && pBattle < 0.1875
-        CB1 += 2
-        CB2 += 2
-        CB3 += 2
-        CB4 += 2
+        ChBattleDict["1"] += 2
+        ChBattleDict["2"] += 2
+        ChBattleDict["3"] += 2
+        ChBattleDict["4"] += 2
     elseif pBattle >= 0.1875 && pBattle <= 0.20
-        CB3 += 3
-        CB4 += 3
-        CB5 += 1
-        CB6 += 1
+        ChBattleDict["3"] += 3
+        ChBattleDict["4"] += 3
+        ChBattleDict["5"] += 1
+        ChBattleDict["6"] += 1
     elseif pBattle > 0.20 && pBattle < 0.2266
-        CB3 += 1
-        CB4 += 1
-        CB5 += 3
-        CB6 += 3
+        ChBattleDict["3"] += 1
+        ChBattleDict["4"] += 1
+        ChBattleDict["5"] += 3
+        ChBattleDict["6"] += 3
     elseif pBattle >= 0.2266
-        CB5 += 4
-        CB6 += 4
+        ChBattleDict["5"] += 4
+        ChBattleDict["6"] += 4
     end
-
-    ChBattleDict = Dict{String,Int64}("1" => CB1,"2" => CB2,"3" => CB3,"4" => CB4,"5" => CB5,"6" => CB6)
 
     return ChBattleDict
 end
@@ -230,120 +202,103 @@ function NBB_discriminant(pNBB)
     c = 1 / 3270.4
     d = 1 / 2529.9
     e = 1 / 1812.0
-    NBB1 = 0
-    NBB2 = 0
-    NBB3 = 0
-    NBB4 = 0
-    NBB5 = 0
-    NBB6 = 0
+    NBBDict = Dict{String,Int64}("1" => 0,"2" => 0,"3" => 0,"4" => 0,"5" => 0,"6" => 0)
 
     if pNBB <= a
-        NBB1 += 4
-        NBB2 += 4
+        NBBDict["1"] += 4
+        NBBDict["2"] += 4
     elseif pNBB > a && pNBB <= b
-        NBB1 += 2
-        NBB2 += 2
-        NBB3 += 3
+        NBBDict["1"] += 2
+        NBBDict["2"] += 2
+        NBBDict["3"] += 3
     elseif pNBB > b && pNBB <= c
-        NBB3 += 2
-        NBB5 += 3
+        NBBDict["3"] += 2
+        NBBDict["5"] += 3
     elseif pNBB > c && pNBB <= d
-        NBB5 += 2
-        NBB4 += 3
+        NBBDict["5"] += 2
+        NBBDict["4"] += 3
     elseif pNBB > d && pNBB < e
-        NBB4 += 2
-        NBB6 += 3
+        NBBDict["4"] += 2
+        NBBDict["6"] += 3
     elseif pNBB >= e
-        NBB6 += 4
+        NBBDict["6"] += 4
     end
+
+    return NBBDict    
 end
 
 function Zettyou_discriminant(pZettyou)
-    Z1 = 0
-    Z2 = 0
-    Z3 = 0
-    Z4 = 0
-    Z5 = 0
-    Z6 = 0
+    zDict = Dict{String,Int64}("1" => 0,"2" => 0,"3" => 0,"4" => 0,"5" => 0,"6" => 0)
 
     if pZettyou <= 0.0625
-        Z1 += 4
-        Z2 += 4
-        Z3 += 4
-        Z4 += 4
-        Z6 += 4
+        zDict["1"] += 4
+        zDict["2"] += 4
+        zDict["3"] += 4
+        zDict["4"] += 4
+        zDict["6"] += 4
     elseif pZettyou > 0.0625 && pZettyou <= 0.1
-        Z1 += 2
-        Z2 += 2
-        Z3 += 2
-        Z4 += 2
-        Z5 += 1
-        Z6 += 2
+        zDict["1"] += 2
+        zDict["2"] += 2
+        zDict["3"] += 2
+        zDict["4"] += 2
+        zDict["5"] += 1
+        zDict["6"] += 2
     elseif pZettyou > 0.1 && pZettyou <= 0.15
-        Z1 += 1
-        Z2 += 1
-        Z3 += 1
-        Z4 += 1
-        Z5 += 2
-        Z6 += 1
+        zDict["1"] += 1
+        zDict["2"] += 1
+        zDict["3"] += 1
+        zDict["4"] += 1
+        zDict["5"] += 2
+        zDict["6"] += 1
     elseif pZettyou > 0.15 && pZettyou <= 0.25
-        Z1 += 1
-        Z2 += 1
-        Z3 += 1
-        Z4 += 1
-        Z5 += 6
-        Z6 += 1
+        zDict["1"] += 1
+        zDict["2"] += 1
+        zDict["3"] += 1
+        zDict["4"] += 1
+        zDict["5"] += 6
+        zDict["6"] += 1
     elseif pZettyou > 0.25
-        Z5 += 8
+        zDict["5"] += 8
     end
-
-    zDict = Dict{String,Int64}("1" => Z1,"2" => Z2,"3" => Z3,"4" => Z4,"5" => Z5,"6" => Z6)
 
     return zDict
 end
 
 function PullBack_discriminant(pPullBack)
-    P1 = 0
-    P2 = 0
-    P3 = 0
-    P4 = 0
-    P5 = 0
-    P6 = 0
+    pDict = Dict{String,Int64}("1" => 0,"2" => 0,"3" => 0,"4" => 0,"5" => 0,"6" => 0)
 
     if pPullBack <= 0.057
-        P1 += 2
-        P2 += 1
-        P3 += 1
-        P5 += 1
+        pDict["1"] += 2
+        pDict["2"] += 1
+        pDict["3"] += 1
+        pDict["5"] += 1
     elseif pPullBack > 0.057 && pPullBack <= 0.061
-        P1 += 1
-        P2 += 1
-        P3 += 2
-        P5 += 1
+        pDict["1"] += 1
+        pDict["2"] += 1
+        pDict["3"] += 2
+        pDict["5"] += 1
     elseif pPullBack > 0.061 && pPullBack <= 0.063
-        P1 += 1
-        P2 += 1
-        P3 += 1
-        P5 += 2
+        pDict["1"] += 1
+        pDict["2"] += 1
+        pDict["3"] += 1
+        pDict["5"] += 2
     elseif pPullBack > 0.063 && pPullBack <= 0.087
-        P1 += 1
-        P2 += 1
-        P3 += 2
-        P5 += 1
+        pDict["1"] += 1
+        pDict["2"] += 2
+        pDict["3"] += 1
+        pDict["5"] += 1
     elseif pPullBack > 0.087 && pPullBack <= 0.11
-        P2 += 2
-        P4 += 2
+        pDict["2"] += 2
+        pDict["4"] += 2
     elseif pPullBack > 0.11 && pPullBack <= 0.15
-        P4 += 3
-        P6 += 2
+        pDict["4"] += 3
+        pDict["6"] += 2
     elseif pPullBack > 0.15 && pPullBack <= 0.203
-        P4 += 2
-        P6 += 3
+        pDict["4"] += 2
+        pDict["6"] += 3
     elseif pPullBack > 0.203
-        P6 += 6
+        pDict["6"] += 6
     end
-
-    pDict = Dict{String,Int64}("1" => P1,"2" => P2,"3" => P3,"4" => P4,"5" => P5,"6" => P6)
 
     return pDict
 end
@@ -397,10 +352,11 @@ function main()
     end
 
     P,W = findmax(settingDict)
+    W = parse(Int,"$W")
 
     print("設定は")
     for i in 1:6
-        if settingDict["$i"] == P
+        if settingDict["$i"] == P && i != W
             print("$i,")
             flag += 1
         else
